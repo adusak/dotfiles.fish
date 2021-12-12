@@ -6,7 +6,7 @@
 
 ---
 
-Forked from my [ZSH dotfiles](https://github.com/caarlos0/dotfiles), those are
+Forked from my [ZSH dotfiles](https://github.com/adusak/dotfiles), those are
 my Fish Shell config files, together with editor, macOS configs and other
 goodies.
 
@@ -46,7 +46,7 @@ First, make sure you have all those things installed:
 Then, run these steps:
 
 ```console
-$ git clone https://github.com/caarlos0/dotfiles.fish.git ~/.dotfiles
+$ git clone https://github.com/adusak/dotfiles.fish.git ~/.dotfiles
 $ cd ~/.dotfiles
 $ ./script/bootstrap.fish
 ```
