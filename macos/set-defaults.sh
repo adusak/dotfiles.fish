@@ -54,8 +54,8 @@ echo "  › Require password immediately after sleep or screen saver begins"
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-echo "  › Always show scrollbars"
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+# echo "  › Always show scrollbars"
+# defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 
 echo "  › Disable Dashboard"
@@ -71,27 +71,30 @@ echo "  › Disable smart quotes and smart dashes as they're annoying when typin
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
+echo "  › Enabling full keyboard access for all controls (enable Tab in modal dialogs, menu windows, etc.)"
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
 echo "  › Disable auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 echo "  › Set up trackpad & mouse speed to a reasonable number"
 defaults write -g com.apple.trackpad.scaling 2
-defaults write -g com.apple.mouse.scaling 2.5
+defaults write -g com.apple.mouse.scaling 0.6875
 
 echo "  › Avoid the creation of .DS_Store files on network volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-echo "  › Disable the 'Are you sure you want to open this application?' dialog"
-defaults write com.apple.LaunchServices LSQuarantine -bool false
+# echo "  › Disable the 'Are you sure you want to open this application?' dialog"
+# defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-echo "  › Set dark interface style"
-defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+# echo "  › Set dark interface style"
+# defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
-echo "  › Set graphite appearance"
-defaults write NSGlobalDomain AppleAquaColorVariant -int 6
+# echo "  › Set graphite appearance"
+# defaults write NSGlobalDomain AppleAquaColorVariant -int 6
 
-echo "  › Set graphite highlight color"
-defaults write NSGlobalDomain AppleHighlightColor -string "0.847059 0.847059 0.862745"
+# echo "  › Set graphite highlight color"
+# defaults write NSGlobalDomain AppleHighlightColor -string "0.847059 0.847059 0.862745"
 
 echo "  › Show battery percent"
 defaults write com.apple.menuextra.battery ShowPercent -bool true
@@ -108,8 +111,8 @@ echo "  › Removing duplicates in the 'Open With' menu"
 
 echo ""
 echo "› Finder:"
-echo "  › Always open everything in Finder's list view"
-defaults write com.apple.Finder FXPreferredViewStyle Nlsv
+echo "  › Always open everything in Finder's column view"
+defaults write com.apple.Finder FXPreferredViewStyle clmv
 
 echo "  › Set the Finder prefs for showing a few different volumes on the Desktop"
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -188,41 +191,6 @@ defaults write com.apple.dock launchanim -bool false
 #############################
 
 echo ""
-echo "› Transmission:"
-echo "  › Use ~/Downloads/Incomplete to store incomplete downloads"
-defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-defaults write org.m0k.transmission IncompleteDownloadFolder -string "$HOME/Downloads/Incomplete"
-
-echo "  › Don't prompt for confirmation before downloading"
-defaults write org.m0k.transmission DownloadAsk -bool false
-
-echo "  › Trash original torrent files"
-defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
-
-echo "  › Hide the donate message"
-defaults write org.m0k.transmission WarningDonate -bool false
-
-echo "  › Hide the legal disclaimer"
-defaults write org.m0k.transmission WarningLegal -bool false
-
-echo "  › Auto-add .torrent files in ~/Downloads"
-defaults write org.m0k.transmission AutoImportDirectory -string "$HOME/Downloads"
-
-echo "  › Auto-resize the window to fit transfers"
-defaults write org.m0k.transmission AutoSize -bool true
-
-echo "  › Auto update to betas"
-defaults write org.m0k.transmission AutoUpdateBeta -bool true
-
-echo "  › Set up the best block list"
-defaults write org.m0k.transmission EncryptionRequire -bool true
-defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
-defaults write org.m0k.transmission BlocklistNew -bool true
-defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
-
-#############################
-
-echo ""
 echo "› Mail:"
 echo "  › Add the keyboard shortcut CMD + Enter to send an email"
 defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\U21a9"
@@ -267,15 +235,15 @@ echo "  › Disable local backups"
 # https://classicyuppie.com/what-crap-is-this-os-xs-mobilebackups/
 sudo tmutil disablelocal
 
-echo "  › Disable hibernation (speeds up entering sleep mode)"
-sudo pmset -a hibernatemode 0
+# echo "  › Disable hibernation (speeds up entering sleep mode)"
+# sudo pmset -a hibernatemode 0
 
-echo "  › Remove the sleep image file to save disk space"
-sudo rm /private/var/vm/sleepimage
-echo "  › Create a zero-byte file instead..."
-sudo touch /private/var/vm/sleepimage
-echo "  › ...and make sure it can’t be rewritten"
-sudo chflags uchg /private/var/vm/sleepimage
+# echo "  › Remove the sleep image file to save disk space"
+# sudo rm /private/var/vm/sleepimage
+# echo "  › Create a zero-byte file instead..."
+# sudo touch /private/var/vm/sleepimage
+# echo "  › ...and make sure it can’t be rewritten"
+# sudo chflags uchg /private/var/vm/sleepimage
 
 echo "  ›  Disable the sudden motion sensor as it’s not useful for SSDs"
 sudo pmset -a sms 0

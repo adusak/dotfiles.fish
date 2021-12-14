@@ -4,7 +4,8 @@ set -Ux VISUAL $EDITOR
 set -Ux WEDITOR code
 
 set -Ux DOTFILES ~/.dotfiles
-set -Ux PROJECTS ~/Developer
+set -Ux PROJECTS ~/Workspace
+set -Ux WORK ~/Workspace/ysoft
 
 set -Ua fish_user_paths $DOTFILES/bin $HOME/.bin
 
