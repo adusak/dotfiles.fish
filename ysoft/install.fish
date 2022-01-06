@@ -1,0 +1,1 @@
+abbr -a za 'python3 /Users/melkus/tools/za-toolkit/za.py'
