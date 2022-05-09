@@ -7,7 +7,7 @@ set -Ux DOTFILES ~/.dotfiles
 set -Ux PROJECTS ~/Workspace
 set -Ux WORK ~/Workspace/ysoft
 
-set -Ua fish_user_paths $DOTFILES/bin $HOME/.bin
+fish_add_path -a $DOTFILES/bin $HOME/.bin
 
 for f in $DOTFILES/*/functions
 	if not contains $f $fish_function_path
