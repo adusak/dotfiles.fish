@@ -6,7 +6,7 @@ case Darwin
 	end
 end
 
-set -gx PATH "$HOME.rbenv/shims" $PATH
+set -Ua fish_user_paths "$HOME.rbenv/shims"
 set -gx RBENV_SHELL fish
 command rbenv rehash 2>/dev/null
 function rbenv

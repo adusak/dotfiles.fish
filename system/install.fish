@@ -25,3 +25,10 @@ end
 if command -qs zoxide
 	zoxide init fish >$__fish_config_dir/conf.d/zoxide.fish
 end
+
+# Add user bin stuff to path
+set -Ua fish_user_paths $HOME/.bin
+
+# Add android SDK to path
+set -Ua fish_user_paths $HOME/Library/Android/sdk/platform-tools
+set -Ua fish_user_paths $HOME/Library/Android/sdk/tools
